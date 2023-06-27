@@ -1,6 +1,6 @@
 class ITStudent {
-    constructor(sname, sid, programme, courseList) {
-        this.sname = sname;
+    constructor(name, sid, programme, courseList) {
+        this.name = name;
         this.sid = sid;
         this.programme = programme;
         this.courselist = courseList;
