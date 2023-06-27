@@ -1,14 +1,14 @@
 class ITStudent {
-    constructor(sname, sid, programme, courselist) {
+    constructor(sname, sid, programme, courseList) {
         this.sname = sname;
         this.sid = sid;
         this.programme = programme;
-        this.courselist = courselist;
+        this.courselist = courseList;
     }
 
     calculateAverage() {
-        const totalMarks = this.courses.reduce((sum, course) => sum + course.mark, 0);
-        return totalMarks / this.courses.length;
+        const totalMarks = this.courselist.reduce((sum, course) => sum + course.mark, 0);
+        return totalMarks / this.courselist.length;
     }
 
     determinePassOrFail() {
