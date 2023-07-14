@@ -23,3 +23,9 @@ function generateRandomName() {
     // Return the generated list of courses
   }
   
+  module.export = {
+    generateRandomCourses,
+    generateRandomID,
+    generateRandomProgramme,
+    generateRandomName
+  }
