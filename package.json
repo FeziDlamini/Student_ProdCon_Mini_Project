@@ -1,0 +1,11 @@
+{
+  "name": "student_prodcon_mini_project",
+  "version": "1.0.0",
+  "description": "This project seeks to implement the Producer Consumer problem",
+  "main": "buffer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
