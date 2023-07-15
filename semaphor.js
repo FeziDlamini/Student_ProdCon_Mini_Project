@@ -4,7 +4,7 @@ class Semaphore {
         this.waitQueue = [];
     }
 
-    acquire() {
+    async acquire() {
         if (this.count > 0) {
             this.count--;
         } else {
@@ -23,3 +23,5 @@ class Semaphore {
         }
     }
 }
+
+export default Semaphore;

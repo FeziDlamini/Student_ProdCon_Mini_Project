@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+
 // Utility functions for generating random data
 function generateRandomName() {
     const surnames = [
@@ -22,8 +23,8 @@ function generateRandomName() {
         'Ndlovu',
         'Mthembu',
         'Shabalala'
-      ];
-      const lastNames = [
+    ];
+    const lastNames = [
         'Alice',
         'Bob',
         'Charlie',
@@ -44,22 +45,20 @@ function generateRandomName() {
         'Zanele',
         'Njabulo',
         'Phindile'
-      ];
+    ];
 
-      function generateRandomName() {
-        return lastNames[Math.floor(Math.random() * names.length)] + ' ' + 
-        surnames[Math.floor(Math.random() * names.length)] ;
-      }
-  }
-  
-  function generateRandomID() {
+    return lastNames[Math.floor(Math.random() * lastNames.length)] + ' ' +
+        surnames[Math.floor(Math.random() * surnames.length)];
+}
+
+function generateRandomID() {
     const idBuffer = crypto.randomBytes(4); // Generate 4 bytes (32 bits) of random data
     const id = idBuffer.readUInt32BE(0); // Read the unsigned 32-bit integer from the buffer
-    const formattedID = String(id).padStart(8, '0'); // Convert to string and pad with leading zeros if necessary
-    return formattedID;
-  }
-  
-  function generateRandomProgramme() {
+     // Convert to string and pad with leading zeros if necessary
+    return String(id).padStart(8, '0');
+}
+
+function generateRandomProgramme() {
     // Generate a random student programme
     // ...
     // Return the generated programme
@@ -84,22 +83,22 @@ function generateRandomName() {
         'Network Security',
         'Big Data Analytics',
         'Software Testing'
-      ];
-    
-      const courses = [];
-    
-      for (let i = 0; i < courseNames.length; i++) {
+    ];
+
+    const courses = [];
+
+    for (let i = 0; i < courseNames.length; i++) {
         const course = {
-          name: courseNames[i],
-          mark: Math.floor(Math.random() * 61) + 40 // Generate a random mark between 40 and 100
+            name: courseNames[i],
+            mark: Math.floor(Math.random() * 61) + 40 // Generate a random mark between 40 and 100
         };
         courses.push(course);
-      }
-    
-      return courses;
-  }
-  
-  function generateRandomCourses() {
+    }
+
+    return courses;
+}
+
+function generateRandomCourses() {
     // Generate a list of random courses with associated marks
     // ...
     // Return the generated list of courses
@@ -114,24 +113,24 @@ function generateRandomName() {
         'Web Development',
         'Cybersecurity',
         'Mobile App Development'
-      ];
-    
-      const courses = [];
-    
-      for (let i = 0; i < courseNames.length; i++) {
+    ];
+
+    const courses = [];
+
+    for (let i = 0; i < courseNames.length; i++) {
         const course = {
-          name: courseNames[i],
-          mark: Math.floor(Math.random() * 61) + 40 // Generate a random mark between 40 and 100
+            name: courseNames[i],
+            mark: Math.floor(Math.random() * 61) + 40 // Generate a random mark between 40 and 100
         };
         courses.push(course);
-      }
-    
-      return courses;
-  }
-  
-  module.export = {
+    }
+
+    return courses;
+}
+
+export {
     generateRandomCourses,
     generateRandomID,
     generateRandomProgramme,
     generateRandomName
-  }
+}

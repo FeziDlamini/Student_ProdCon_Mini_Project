@@ -16,3 +16,5 @@ class ITStudent {
         return average >= 50 ? 'Pass' : 'Fail';
     }
 }
+
+export default ITStudent;
