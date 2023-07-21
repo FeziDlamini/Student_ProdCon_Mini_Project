@@ -11,7 +11,7 @@ function unwrapFromXML(xmlData) {
     // Return the ITStudent object
 }
 
-export {
+module.exports =  {
     wrapToXML,
     unwrapFromXML
 }

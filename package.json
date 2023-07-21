@@ -4,7 +4,8 @@
   "description": "This project seeks to implement the Producer Consumer problem",
   "main": "buffer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC"

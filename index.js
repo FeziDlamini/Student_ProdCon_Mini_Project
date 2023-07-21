@@ -1,4 +1,4 @@
-const ITStudent = require('./it_student');
+const {ITStudent} = require('./it_student');
 const Buffer = require('./buffer');
 const {
     generateRandomName,

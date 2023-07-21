@@ -54,7 +54,7 @@ function generateRandomName() {
 function generateRandomID() {
     const idBuffer = crypto.randomBytes(4); // Generate 4 bytes (32 bits) of random data
     const id = idBuffer.readUInt32BE(0); // Read the unsigned 32-bit integer from the buffer
-     // Convert to string and pad with leading zeros if necessary
+    // Convert to string and pad with leading zeros if necessary
     return String(id).padStart(8, '0');
 }
 
@@ -128,7 +128,7 @@ function generateRandomCourses() {
     return courses;
 }
 
-export {
+module.exports = {
     generateRandomCourses,
     generateRandomID,
     generateRandomProgramme,

@@ -1,19 +1,36 @@
+const {promisify} = require("util");
+const {readFile, writeFile} = require("fs");
+const part = require("path");
+
+const readFileAsync = promisify(readFile);
+const writeFileAsync = promisify(writeFile);
+
 // Utility functions for file system operations
 const FileSystem = {
-    saveXMLFile(fileName, xmlData) {
-        // Save the XML data to a file with the given name
-        // ...
+    async saveXMLFile(fileName, xmlData) {
+        let url = part.join(`${fileName}.xml`);
+        await writeFileAsync(url, xmlData);
     },
 
-    readXMLFile(fileName) {
-        // Read the content of the XML file with the given name and return it as a string
-        // ...
+    async readXMLFile(fileName) {
+        let url = part.join(`${fileName}.xml`);
+        let data = await readFileAsync(url, 'utf8');
+        let dom = new DOMParser().parseFromString(data.toString(), "text/xml");
+        console.log(dom, 'dom')
+        return dom;
     },
 
-    clearXMLFile(fileName) {
-        // Clear the content of the XML file with the given name
-        // ...
+    async clearXMLFile(fileName) {
+        let url = part.join(`${fileName}.xml`);
+        await writeFileAsync(url, '');
     }
 };
 
-export default FileSystem;
+
+// (async () => {
+//     console.log('Working')
+//     await FileSystem.clearXMLFile('student1')
+// })();
+module.exports = {
+    FileSystem
+}
