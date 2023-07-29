@@ -30,6 +30,8 @@ async function consumer() {
     await buffer.consume();
 }
 
-// Running the producer/consumer processes
-setInterval(producer, 2000); // Run the producer every 2 seconds
-setInterval(consumer, 3000); // Run the consumer every 3 seconds
+for(let i = 0; i < 3; i++){
+    // Running the producer/consumer processes
+    setInterval(producer, 2000); // Run the producer every 2 seconds
+    setInterval(consumer, 3000); // Run the consumer every 3 seconds
+}

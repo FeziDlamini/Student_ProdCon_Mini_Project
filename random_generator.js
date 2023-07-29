@@ -59,43 +59,19 @@ function generateRandomID() {
 }
 
 function generateRandomProgramme() {
-    // Generate a random student programme
-    // ...
-    // Return the generated programme
-    const courseNames = [
-        'Introduction to Computer Science',
-        'Data Structures and Algorithms',
-        'Database Systems',
-        'Operating Systems',
-        'Computer Networks',
+    const programmes = [
+        'Computer Science',
+        'Information Systems',
+        'Information Technology',
         'Software Engineering',
+        'Computer Engineering',
+        'Data Science',
+        'Cybersecurity',
         'Artificial Intelligence',
         'Web Development',
-        'Cybersecurity',
-        'Mobile App Development',
-        'Machine Learning',
-        'Computer Graphics',
-        'Cloud Computing',
-        'Data Mining',
-        'Information Retrieval',
-        'Computer Architecture',
-        'Human-Computer Interaction',
-        'Network Security',
-        'Big Data Analytics',
-        'Software Testing'
+        'Network Administration'
     ];
-
-    const courses = [];
-
-    for (let i = 0; i < courseNames.length; i++) {
-        const course = {
-            name: courseNames[i],
-            mark: Math.floor(Math.random() * 61) + 40 // Generate a random mark between 40 and 100
-        };
-        courses.push(course);
-    }
-
-    return courses;
+    return programmes[Math.floor(Math.random() * programmes.length)];
 }
 
 function generateRandomCourses() {

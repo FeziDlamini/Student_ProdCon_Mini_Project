@@ -3,7 +3,7 @@ class ITStudent {
         this.name = name;
         this.sid = sid;
         this.programme = programme;
-        this.courselist = courseList;
+        this.courselist = courseList;//mark, name
     }
 
     calculateAverage() {
