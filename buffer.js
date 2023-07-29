@@ -21,7 +21,7 @@ class Buffer {
 
         const fileName = `student${this.buffer.length + 1}.xml`;
         const xmlData = wrapToXML(student);
-        FileSystem.saveXMLFile(fileName, xmlData);
+        await FileSystem.saveXMLFile(fileName, xmlData);
 
         this.buffer.push(this.buffer.length + 1); // Insert the generated number into the buffer
 
@@ -38,26 +38,28 @@ class Buffer {
         await this.semaphore.acquire(); // Acquire the semaphore to access the buffer
 
         const fileName = `student${this.buffer[0]}.xml`;
-        const xmlData = FileSystem.readXMLFile(fileName);
-        const student = unwrapFromXML(xmlData);
+        const xmlData = await FileSystem.readXMLFile(fileName);
+        if (xmlData) {
+            const student = unwrapFromXML(xmlData);
 
-        FileSystem.clearXMLFile(fileName);
-        this.buffer.shift(); // Remove the integer from the buffer
+            await FileSystem.clearXMLFile(fileName);
+            this.buffer.shift(); // Remove the integer from the buffer
 
-        this.semaphore.release(); // Release the semaphore
+            this.semaphore.release(); // Release the semaphore
 
-        const average = student.calculateAverage();
-        const passOrFail = student.determinePassOrFail();
+            const average = student.calculateAverage();
+            const passOrFail = student.determinePassOrFail();
 
-        console.log('Student Name:', student.name);
-        console.log('Student ID:', student.id);
-        console.log('Programme:', student.programme);
-        console.log('Courses and Marks:');
-        student.courseList.forEach((course) => {
-            console.log(`${course.name}: ${course.mark}`);
-        });
-        console.log('Average:', average);
-        console.log('Pass/Fail:', passOrFail);
+            console.log('Student Name:', student.name);
+            console.log('Student ID:', student.sid);
+            console.log('Programme:', student.programme);
+            console.log('Courses and Marks:');
+            student?.courselist?.forEach((course) => {
+                console.log(`\t${course.name}: ${course.mark}`);
+            });
+            console.log('Average:', average);
+            console.log('Pass/Fail:', passOrFail, '\n\n');
+        }
     }
 }
 
