@@ -1,0 +1,47 @@
+<Student>
+	<Name>Zanele Wilson</Name>
+	<SID>2142275959</SID>
+	<Programme>Information Technology</Programme>
+	<CourseList>
+		<CourseListItem>
+			<CourseName>Introduction to Computer Science</CourseName>
+			<CourseMark>60</CourseMark>
+		</CourseListItem>
+		<CourseListItem>
+			<CourseName>Data Structures and Algorithms</CourseName>
+			<CourseMark>82</CourseMark>
+		</CourseListItem>
+		<CourseListItem>
+			<CourseName>Database Systems</CourseName>
+			<CourseMark>53</CourseMark>
+		</CourseListItem>
+		<CourseListItem>
+			<CourseName>Operating Systems</CourseName>
+			<CourseMark>44</CourseMark>
+		</CourseListItem>
+		<CourseListItem>
+			<CourseName>Computer Networks</CourseName>
+			<CourseMark>97</CourseMark>
+		</CourseListItem>
+		<CourseListItem>
+			<CourseName>Software Engineering</CourseName>
+			<CourseMark>49</CourseMark>
+		</CourseListItem>
+		<CourseListItem>
+			<CourseName>Artificial Intelligence</CourseName>
+			<CourseMark>62</CourseMark>
+		</CourseListItem>
+		<CourseListItem>
+			<CourseName>Web Development</CourseName>
+			<CourseMark>50</CourseMark>
+		</CourseListItem>
+		<CourseListItem>
+			<CourseName>Cybersecurity</CourseName>
+			<CourseMark>98</CourseMark>
+		</CourseListItem>
+		<CourseListItem>
+			<CourseName>Mobile App Development</CourseName>
+			<CourseMark>93</CourseMark>
+		</CourseListItem>
+	</CourseList>
+</Student>
