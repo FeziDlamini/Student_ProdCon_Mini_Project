@@ -30,8 +30,5 @@ async function consumer() {
     await buffer.consume();
 }
 
-for(let i = 0; i < 3; i++){
-    // Running the producer/consumer processes
-    setInterval(producer, 2000); // Run the producer every 2 seconds
-    setInterval(consumer, 3000); // Run the consumer every 3 seconds
-}
+
+module.exports =  {producer, consumer};

@@ -5,11 +5,13 @@
   "main": "buffer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node producer_consumer.js",
+    "start2": "node websocket_server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jsdom": "^22.1.0"
+    "jsdom": "^22.1.0",
+    "ws": "^8.13.0"
   }
 }

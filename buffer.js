@@ -15,17 +15,17 @@ class Buffer {
             console.log('Buffer is full. Waiting...');
             // Wait until the buffer is not full
             // ...
+        } else {
+            await this.semaphore.acquire(); // Acquire the semaphore to access the buffer
+
+            const fileName = `student${this.buffer.length + 1}.xml`;
+            const xmlData = wrapToXML(student);
+            await FileSystem.saveXMLFile(fileName, xmlData);
+
+            this.buffer.push(this.buffer.length + 1); // Insert the generated number into the buffer
+
+            this.semaphore.release(); // Release the semaphore
         }
-
-        await this.semaphore.acquire(); // Acquire the semaphore to access the buffer
-
-        const fileName = `student${this.buffer.length + 1}.xml`;
-        const xmlData = wrapToXML(student);
-        await FileSystem.saveXMLFile(fileName, xmlData);
-
-        this.buffer.push(this.buffer.length + 1); // Insert the generated number into the buffer
-
-        this.semaphore.release(); // Release the semaphore
     }
 
     async consume() {
@@ -33,33 +33,35 @@ class Buffer {
             console.log('Buffer is empty. Waiting...');
             // Wait until the buffer is not empty
             // ...
+        } else {
+
+            await this.semaphore.acquire(); // Acquire the semaphore to access the buffer
+
+            const fileName = `student${this.buffer[0]}.xml`;
+            const xmlData = await FileSystem.readXMLFile(fileName);
+            if (xmlData) {
+                const student = unwrapFromXML(xmlData);
+
+                await FileSystem.clearXMLFile(fileName);
+                this.buffer.shift(); // Remove the integer from the buffer
+
+                this.semaphore.release(); // Release the semaphore
+
+                const average = student.calculateAverage();
+                const passOrFail = student.determinePassOrFail();
+
+                console.log('Student Name:', student.name);
+                console.log('Student ID:', student.sid);
+                console.log('Programme:', student.programme);
+                console.log('Courses and Marks:');
+                student?.courselist?.forEach((course) => {
+                    console.log(`\t${course.name}: ${course.mark}`);
+                });
+                console.log('Average:', average);
+                console.log('Pass/Fail:', passOrFail, '\n\n');
+            }
         }
 
-        await this.semaphore.acquire(); // Acquire the semaphore to access the buffer
-
-        const fileName = `student${this.buffer[0]}.xml`;
-        const xmlData = await FileSystem.readXMLFile(fileName);
-        if (xmlData) {
-            const student = unwrapFromXML(xmlData);
-
-            await FileSystem.clearXMLFile(fileName);
-            this.buffer.shift(); // Remove the integer from the buffer
-
-            this.semaphore.release(); // Release the semaphore
-
-            const average = student.calculateAverage();
-            const passOrFail = student.determinePassOrFail();
-
-            console.log('Student Name:', student.name);
-            console.log('Student ID:', student.sid);
-            console.log('Programme:', student.programme);
-            console.log('Courses and Marks:');
-            student?.courselist?.forEach((course) => {
-                console.log(`\t${course.name}: ${course.mark}`);
-            });
-            console.log('Average:', average);
-            console.log('Pass/Fail:', passOrFail, '\n\n');
-        }
     }
 }
 
